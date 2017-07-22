@@ -1,0 +1,101 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+    <h5 class="mt-0">{{this.translate.get('EDIT_TITLE')}}</h5>
+
+    <!-- Name -->
+    <div class="mb-1">
+        <md-input-container class="ml-xs mr-xs" style="width: 100%;">
+            <input mdInput placeholder="{{this.translate.get('NAME')}} (*)" [formControl]="form.controls['name_control']"
+                [(ngModel)]="contact.name" (ngModelChange)="this.searchQueuelist = filterQueue(contact.name)">
+            <small *ngIf="form.controls['name_control'].hasError('required')" class="mat-text-warn">{{this.translate.get('NAME_WARN')}}</small>
+        </md-input-container>
+    </div>
+
+    <!-- Job title -->
+    <!--div class="mb-1">
+        <md-input-container class="ml-xs mr-xs" style="width: 100%;">
+            <input mdInput placeholder="{{this.translate.get('JOB_TITLE')}}" [formControl]="form.controls['job_title_control']" [mdAutocomplete]="tdAutoJobTitle"
+                [(ngModel)]="contact.job_title" (ngModelChange)="this.searchQueuelist = filterQueue(contact.job_title)">
+            <small *ngIf="form.controls['job_title_control'].hasError('required')" class="mat-text-warn">{{this.translate.get('JOB_TITLE_WARN')}}</small>
+        </md-input-container>
+    </div>
+    <md-autocomplete #tdAutoJobTitle="mdAutocomplete">
+        <md-option *ngFor="let queue of searchQueuelist" [value]="queue">
+            <span>{{ queue }}</span>
+        </md-option>
+    </md-autocomplete-->
+
+    <!-- Email -->
+    <div class="mb-1">
+        <md-input-container class="ml-xs mr-xs" style="width: 100%;">
+            <input mdInput placeholder="{{this.translate.get('EMAIL')}}" [formControl]="form.controls['email_control']" 
+                [(ngModel)]="contact.email" (ngModelChange)="this.searchQueuelist = filterQueue(contact.email)">
+            <small *ngIf="form.controls['email_control'].hasError('required')" class="mat-text-warn">{{this.translate.get('EMAIL_WARN')}}</small>
+        </md-input-container>
+    </div>
+
+    <!-- SDDT -->
+    <div class="mb-1">
+        <md-input-container class="ml-xs mr-xs" style="width: 100%;">
+            <input mdInput placeholder="{{this.translate.get('PHONE')}}" [formControl]="form.controls['phone_control']" 
+                [(ngModel)]="contact.phone" (ngModelChange)="this.searchQueuelist = filterQueue(contact.phone)">
+            <small *ngIf="form.controls['phone_control'].hasError('required')" class="mat-text-warn">{{this.translate.get('PHONE_WARN')}}</small>
+        </md-input-container>
+    </div>
+    
+    <!-- Parent ORG -->
+    <div class="mb-1">
+        <md-input-container class="ml-xs mr-xs" style="width: 100%;">
+            <input mdInput placeholder="{{this.translate.get('PARENT_ORGANIZATION')}}" [formControl]="form.controls['parent_org_control']"
+                [mdAutocomplete]="tdAutoCompany" [(ngModel)]="contact.company" (ngModelChange)="this.searchQueuelist = filterQueue(contact.parentName)">
+            <small *ngIf="form.controls['parent_org_control'].hasError('required')" class="mat-text-warn">{{this.translate.get('COMPANY_WARN')}}</small>
+        </md-input-container>
+    </div>
+    <md-autocomplete #tdAutoCompany="mdAutocomplete">
+        <md-option *ngFor="let queue of searchQueuelist" [value]="queue">
+            <span>{{ queue }}</span>
+        </md-option>
+    </md-autocomplete>
+
+    <!-- Address -->
+    <div class="mb-1">
+        <md-input-container class="ml-xs mr-xs" style="width: 100%;">
+            <input mdInput placeholder="{{this.translate.get('ADDRESS')}}" [formControl]="form.controls['address_control']" [(ngModel)]="contact.address">
+        </md-input-container>
+    </div>
+
+    <!-- Website -->
+    <div class="mb-1">
+        <md-input-container class="ml-xs mr-xs" style="width: 100%;">
+            <input mdInput placeholder="{{this.translate.get('WEBSITE')}}" [formControl]="form.controls['website_control']" [(ngModel)]="contact.website">
+        </md-input-container>
+    </div>
+
+    <!-- Create at -->
+    <div class="mb-1">
+        <md-input-container class="ml-xs mr-xs" style="width: 100%;">
+            <input mdInput placeholder="{{this.translate.get('CREATE_AT')}}" [formControl]="form.controls['create_at']" [(ngModel)]="contact.createdDatetime">
+        </md-input-container>
+    </div>
+
+    <!-- Create by -->
+    <div class="mb-1">
+        <md-input-container class="ml-xs mr-xs" style="width: 100%;">
+            <input mdInput disabled placeholder="{{this.translate.get('CREATE_BY')}}" [formControl]="form.controls['create_by']" [(ngModel)]="contact.createdBy">
+        </md-input-container>
+    </div>
+    <!-- Update at -->
+    <div class="mb-1">
+        <md-input-container class="ml-xs mr-xs" style="width: 100%;">
+            <input mdInput disabled placeholder="{{this.translate.get('UPDATE_AT')}}" [formControl]="form.controls['update_at']" [(ngModel)]="contact.updatedDatetime">
+        </md-input-container>
+    </div>
+    <!-- Update by -->
+    <div class="mb-1">
+        <md-input-container class="ml-xs mr-xs" style="width: 100%;">
+            <input mdInput disabled="true" placeholder="{{this.translate.get('UPDATE_BY')}}" [formControl]="form.controls['update_by']"
+                [(ngModel)]="contact.updatedBy">
+        </md-input-container>
+    </div>
+    <button md-raised-button md-button-sm color="primary" class="mr-1" type="submit" [disabled]="!form.valid">{{this.translate.get('SAVE')}}</button>
+    <button md-raised-button md-button-sm color="primary" class="mr-1" type="button" (click)="closeDialog()">{{this.translate.get('CANCEL')}}</button>
+</form>
