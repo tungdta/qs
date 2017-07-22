@@ -1,0 +1,100 @@
+<md-card>
+    <md-card-header>
+        <md-card-title style="padding-top:0px;">
+            <tr>
+                <div fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="center stretch">
+                    <div fxFlex.gt-sm="95%" fxFlex="100%" style="padding-top:15px;">
+                        {{this.translate.get('FILTER')}}
+                    </div>
+                    <div fxFlex.gt-sm="5%" fxFlex="100%" style="padding-top:5px;">
+                        <div fxFlex>
+                            <button md-raised-button md-button-sm color="primary" (click)="filterTable()" class="mr-1">{{this.translate.get('APPLY')}}</button>
+                        </div>
+                    </div>
+                </div>
+            </tr>
+        </md-card-title>
+    </md-card-header>
+    <hr>
+    <md-card-content>
+        <!-- Company Name -->
+        <div fxLayout="row" fxLayoutAlign="start center" class="mb-1">
+            <md-input-container class="ml-xs mr-xs" style="width: 100%;">
+                <input mdInput placeholder="{{this.translate.get('NAME')}}" [mdAutocomplete]="tdAutoName" [(ngModel)]="currentName" #modelDir="ngModel"
+                    (ngModelChange)="this.searchNameList = filterName(currentName)" [disabled]="tdDisabled">
+            </md-input-container>
+        </div>
+        <md-autocomplete #tdAutoName="mdAutocomplete">
+            <md-option *ngFor="let name of searchNameList"  [value]="name">
+                <span>{{name}}</span>
+            </md-option>
+        </md-autocomplete>
+        <!-- Phone -->
+        <div fxLayout="row" fxLayoutAlign="start center" class="mb-1">
+            <md-input-container class="ml-xs mr-xs" style="width: 100%;">
+                <input mdInput placeholder="{{this.translate.get('PHONE')}}" [mdAutocomplete]="tdAutoPhone" [(ngModel)]="currentPhone" #modelDir="ngModel"
+                    (ngModelChange)="this.searchAgentlist = filterAgent(currentAgent)" [disabled]="tdDisabled">
+            </md-input-container>
+        </div>
+        <md-autocomplete #tdAutoPhone="mdAutocomplete">
+            <md-option *ngFor="let agent of searchAgentlist" [value]="agent">
+                <span>{{ agent }}</span>
+            </md-option>
+        </md-autocomplete>
+        <!-- Email -->
+        <div fxLayout="row" fxLayoutAlign="start center" class="mb-1">
+            <md-input-container class="ml-xs mr-xs" style="width: 100%;">
+                <input mdInput placeholder="{{this.translate.get('EMAIL')}}" [mdAutocomplete]="tdAutoMail" [(ngModel)]="currentEmail" #modelDir="ngModel"
+                    (ngModelChange)="this.searchAgentlist = filterAgent(currentAgent)" [disabled]="tdDisabled">
+            </md-input-container>
+        </div>
+        <md-autocomplete #tdAutoMail="mdAutocomplete">
+            <md-option *ngFor="let agent of searchAgentlist" [value]="agent">
+                <span>{{ agent }}</span>
+            </md-option>
+        </md-autocomplete>
+        <!-- Website -->
+        <div fxLayout="row" fxLayoutAlign="start center" class="mb-1">
+            <md-input-container class="ml-xs mr-xs" style="width: 100%;">
+                <input mdInput placeholder="{{this.translate.get('WEBSITE')}}" [mdAutocomplete]="tdAutoWeb" [(ngModel)]="currentWebsite" #modelDir="ngModel"
+                    (ngModelChange)="this.searchAgentlist = filterAgent(currentAgent)" [disabled]="tdDisabled">
+            </md-input-container>
+        </div>
+        <md-autocomplete #tdAutoWeb="mdAutocomplete">
+            <md-option *ngFor="let agent of searchAgentlist" [value]="agent">
+                <span>{{ agent }}</span>
+            </md-option>
+        </md-autocomplete>
+        <!-- Creat at -->
+        <div fxLayout="row" fxLayoutAlign="start center" class="mb-1">
+            <md-select class="ml-xs mr-xs" style="width: 100%;" placeholder="{{this.translate.get('CREATE_AT')}}" [(ngModel)]="currentCreateAt"
+                [required]="isRequired" [disabled]="isDisabled" #createAtControl="ngModel">
+                <md-option *ngFor="let time of timeItem" [value]="time.id" [disabled]="time.disabled">
+                    {{ time.text }}
+                </md-option>
+            </md-select>
+        </div>
+        <!-- Update at -->
+        <div fxLayout="row" fxLayoutAlign="start center" class="mb-1">
+            <md-select class="ml-xs mr-xs" style="width: 100%;" placeholder="{{this.translate.get('UPDATE_AT')}}" [(ngModel)]="currentUpdateAt"
+                [required]="isRequired" [disabled]="isDisabled" #createAtControl="ngModel">
+                <md-option *ngFor="let time of timeItem" [value]="time.id" [disabled]="time.disabled">
+                    {{ time.text }}
+                </md-option>
+            </md-select>
+        </div>
+        <!-- Owner -->
+        <div fxLayout="row" fxLayoutAlign="start center" class="mb-1">
+            <md-input-container class="ml-xs mr-xs" style="width: 100%;">
+                <input mdInput placeholder="{{this.translate.get('OWNER')}}" [mdAutocomplete]="tdAutoOwner" [(ngModel)]="currentOwner" #modelDir="ngModel"
+                    (ngModelChange)="this.searchAgentlist = filterAgent(currentAgent)" [disabled]="tdDisabled">
+            </md-input-container>
+        </div>
+        <md-autocomplete #tdAutoOwner="mdAutocomplete">
+            <md-option *ngFor="let queue of searchQueuelist" [value]="queue">
+                <span>{{ queue }}</span>
+            </md-option>
+        </md-autocomplete>
+    </md-card-content>
+    <hr>
+</md-card>

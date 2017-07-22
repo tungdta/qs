@@ -1,0 +1,35 @@
+<ngx-datatable class="material" [rows]="agentqueueService.agentqueuelist" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+    [rowHeight]="'auto'" [limit]="8">
+    <ngx-datatable-column name="{{this.translate.get('AGENT_ID')}}">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            <div>{{row.agent_id}}</div>
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="{{this.translate.get('QUEUE_ID')}}">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            <div>{{row.queue_id}}</div>
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="{{this.translate.get('QUEUE_NAME')}}">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            <div>{{row.queue_name}}</div>
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="{{this.translate.get('PRIORITY')}}">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            <div>{{row.priority}}</div>
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="{{this.translate.get('ACTION')}}">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            <div>
+                <button md-icon-button (click)="edit(row)"><md-icon>edit</md-icon></button>
+                <button md-icon-button (click)="delete(row)"><md-icon>delete</md-icon></button>
+            </div>
+        </ng-template>
+    </ngx-datatable-column>
+</ngx-datatable>

@@ -1,0 +1,63 @@
+<ngx-datatable class="material" [rows]="contactService.contactlist" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+    [rowHeight]="'auto'" [limit]="8">
+
+    <ngx-datatable-column name="{{this.translate.get('NAME')}}" [width]="270">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            <div fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="start center">
+                <div fxFlex.gt-sm="25%" fxFlex="100%">
+                    <md-icon style="font-size:48px;">
+                        business
+                    </md-icon>
+                </div>
+                <div fxFlex.gt-sm="75%" fxFlex="100%">
+                    <a class="mat-text-primary" [routerLink]="['/company/detail', row.id]" routerLinkActive="active">{{row.name}}</a>
+                    <div>{{row.address}}</div>
+                    <a href="{{row.website}}">{{row.website}}</a>
+                </div>
+            </div>
+
+            <!--div class="row">
+                <div class="col-md-3">
+                    <md-icon>
+                        <h1>business</h1>
+                    </md-icon>
+                </div>
+                <div class="col-md-9">
+                    <a class="text-primary" [routerLink]="['/company/detail', row.id]" routerLinkActive="active">{{row.name}}</a>
+                    <div>{{row.address}}</div>
+                    <a href="{{row.website}}">{{row.website}}</a>
+                </div>
+            </div-->
+        </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="{{this.translate.get('OPEN_DEALS')}}" [width]="80">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            <div>{{row.openDeal}}</div>
+        </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="{{this.translate.get('LAST_CONTACTED_TIME')}}" [width]="80">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            <div>{{row.lastContactTime}}</div>
+        </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="{{this.translate.get('OWNER')}}" [width]="15">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            <div>{{row.createdBy}}</div>
+        </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="{{this.translate.get('ACTION')}}" [width]="5">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            <div>
+                <button md-icon-button [md-menu-trigger-for]="addMenu" aria-label="Open x-positioned menu">
+                    <md-icon>menu</md-icon>
+                </button>
+                <md-menu x-position="before" #addMenu="mdMenu" class="before">
+                    <button md-menu-item *ngFor="let item of iconItems" [disabled]="item.disabled" (click)="click(item.id, row)">
+                    <md-icon>{{ item.icon }}</md-icon>
+                    {{ item.text }}
+                    </button>
+                </md-menu>
+            </div>
+        </ng-template>
+    </ngx-datatable-column>
+</ngx-datatable>
