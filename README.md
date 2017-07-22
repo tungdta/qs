@@ -1,2 +1,0 @@
-# qs
-QS-project

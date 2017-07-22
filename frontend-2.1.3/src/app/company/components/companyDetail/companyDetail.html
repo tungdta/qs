@@ -1,0 +1,28 @@
+<!--notification-bar></notification-bar-->
+<!--breadcrumb-selector></breadcrumb-selector-->
+<!--div class="right-wrapper pull-right" style="padding-top:10px;">
+    <company-menu-button></company-menu-button>
+</div-->
+<div class="wrapper">
+    <div fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="end center">
+        <div>
+            <company-menu-button></company-menu-button>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="center stretch">
+        <div fxFlex.gt-sm="75%" fxFlex="100%">
+            <!-- Thông tin Contact -->
+            <contact-info [contactId]=contact_id></contact-info>
+            <!-- Danh sách Recent Conversation -->
+            <conversation-result [contactId]=contact_id></conversation-result>
+            <!-- Danh sách Recent Activities -->
+            <activity-result [contactId]=contact_id></activity-result>
+            <!-- Danh sách Deals -->
+            <deal-result [contactId]=contact_id></deal-result>
+        </div>
+        <div fxFlex.gt-sm="25%" fxFlex="100%">
+            <!-- Tab Note/Task/Meeting... -->
+            <tab-activity></tab-activity>
+        </div>
+    </div>
+</div>

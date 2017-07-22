@@ -1,0 +1,41 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+    <h5 class="mt-0">{{this.translate.get('ADD_COMPANY')}}</h5>
+    <!-- Name -->
+    <md-input-container class="ml-xs mr-xs" style="width: 100%;">
+        <input mdInput placeholder="{{this.translate.get('NAME')}} (*)" [formControl]="form.controls['name_control']" [(ngModel)]="contact.name">
+        <small *ngIf="form.controls['name_control'].hasError('required') && form.controls['name_control'].touched" class="mat-text-warn">{{this.translate.get('REQUIRE_INPUT')}}</small>
+    </md-input-container>
+
+    <!-- Phone -->
+    <md-input-container class="ml-xs mr-xs" style="width: 100%;">
+        <input mdInput placeholder="{{this.translate.get('PHONE')}}" [formControl]="form.controls['phone_control']" [(ngModel)]="contact.phone">
+        <small *ngIf="form.controls['phone_control'].hasError('required') && form.controls['phone_control'].touched" class="mat-text-warn">{{this.translate.get('REQUIRE_INPUT')}}</small>
+    </md-input-container>
+
+    <!-- Email -->
+    <md-input-container class="ml-xs mr-xs" style="width: 100%;">
+        <input mdInput placeholder="{{this.translate.get('EMAIL')}}" [formControl]="form.controls['email_control']" [(ngModel)]="contact.email">
+    </md-input-container>
+
+    <!-- Parent organization -->
+    <md-input-container class="ml-xs mr-xs" style="width: 100%;">
+        <input mdInput placeholder="{{this.translate.get('PARENT_ORGANIZATION')}}" [formControl]="form.controls['parent_org_control']" [(ngModel)]="contact.parentName">
+        <small *ngIf="form.controls['parent_org_control'].hasError('required') && form.controls['parent_org_control'].touched" class="mat-text-warn">{{this.translate.get('REQUIRE_INPUT')}}</small>
+    </md-input-container>
+
+    <!-- Address -->
+    <md-input-container class="ml-xs mr-xs" style="width: 100%;">
+        <input mdInput placeholder="{{this.translate.get('ADDRESS')}}" [formControl]="form.controls['address_control']" [(ngModel)]="contact.address">
+        <small *ngIf="form.controls['address_control'].hasError('required') && form.controls['address_control'].touched" class="mat-text-warn">{{this.translate.get('REQUIRE_INPUT')}}</small>
+    </md-input-container>
+
+    <!-- Website -->
+    <md-input-container class="ml-xs mr-xs" style="width: 100%;">
+        <input mdInput placeholder="{{this.translate.get('WEBSITE')}}" [formControl]="form.controls['website_control']" [(ngModel)]="contact.website">
+    </md-input-container>
+
+    <!-- Save, Cancel-->
+    <button md-raised-button md-button-sm color="primary" class="mr-1" type="submit" [disabled]="!form.valid">{{this.translate.get('SAVE')}}</button>
+    <button md-raised-button md-button-sm color="primary" class="mr-1" type="button" (click)="closeDialog()">{{this.translate.get('CANCEL')}}</button>
+
+</form>

@@ -1,0 +1,53 @@
+<div class="wrapper">
+    <div fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="center stretch">
+        <md-card fxFlex.gt-md="100%" fxFlex.gt-sm="100%" fxFlex="100%">
+            <md-card-title>{{this.translate.get('DEAL')}}</md-card-title>
+            <hr>
+            <md-card-content>
+                <div fxLayout="row" fxLayoutWrap="wrap" *ngFor="let deal of deal_list" style="padding-bottom:10px;">
+                    <div fxFlex.gt-md="5%" fxFlex.gt-sm="10%" fxFlex="100%">
+                        <md-icon> start_border </md-icon>
+                    </div>
+                    <div fxFlex.gt-md="40%" fxFlex.gt-sm="30%" fxFlex="100%">
+                        <div>
+                            <a class="mat-text-primary"><b>{{deal.deal_name}}</b></a>
+                        </div>
+                        <a class="mat-text-primary">{{deal.company_name}}</a>
+                        <div> {{deal.create_by}} </div>
+                    </div>
+                    <div fxFlex.gt-md="20%" fxFlex.gt-sm="20%" fxFlex="100%">
+                        <div md-inline>
+                            <span><b> $ </b></span>
+                            <span><b> {{deal.deal_value}}</b></span>
+                        </div>
+                    </div>
+                    <div fxFlex.gt-md="10%" fxFlex.gt-sm="15%" fxFlex="100%">
+                        <div> {{deal.deal_stage}} </div>
+                    </div>
+                    <div fxFlex.gt-md="15%" fxFlex.gt-sm="25%" fxFlex="100%">
+                        <div> {{deal.create_at}} </div>
+                    </div>
+                    <div fxFlex.gt-md="10%" fxFlex.gt-sm="10%" fxFlex="100%">
+                        <div fxFlex></div>
+                        <button md-icon-button [md-menu-trigger-for]="addMenu" aria-label="Open x-positioned menu">
+                            <md-icon>more_horiz</md-icon>
+                        </button>
+                        <md-menu x-position="before" #addMenu="mdMenu" class="before">
+                            <button md-menu-item *ngFor="let item of iconItems" [disabled]="item.disabled" (click)="click(item.id, row)">
+                                <md-icon>{{ item.icon }}</md-icon>
+                                {{ item.text }}
+                            </button>
+                        </md-menu>
+                    </div>
+                    <div>
+                        <hr style="padding-top:50px; padding-bottom:10px;">
+                    </div>
+                </div>
+                <!--div fxLayout="row" fxLayoutWrap="wrap">
+                    <div fxFlex></div>
+                    <button md-button color="primary" class="mr-1">{{translate.get('VIEW_ALL')}}</button>
+                </div-->
+            </md-card-content>
+        </md-card>
+    </div>
+</div>

@@ -1,0 +1,1 @@
+export * from './activityResult.component';
