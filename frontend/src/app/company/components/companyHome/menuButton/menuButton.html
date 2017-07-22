@@ -1,9 +1,0 @@
-<button md-raised-button md-button-sm color="primary" class="mr-1" [md-menu-trigger-for]="addMenu" aria-label="Open x-positioned menu">{{this.translate.get('ADD_TITLE')}}
-<md-icon>keyboard_arrow_down</md-icon>
-</button>
-<md-menu x-position="before" #addMenu="mdMenu" class="before">
-  <button md-menu-item *ngFor="let item of iconItems" [disabled]="item.disabled" (click)="select(item.id)">
-      <md-icon>{{ item.icon }}</md-icon>
-      {{ item.text }}
-    </button>
-</md-menu>
