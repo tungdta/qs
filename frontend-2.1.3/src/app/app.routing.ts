@@ -81,6 +81,12 @@ export const AppRoutes: Routes = [{
       loadChildren: './company/company.module#CompanyModule',
       data: { breadcrumb: 'Company', permissions: ['full'] },
       canActivate: [AuthGuard]
+    },
+    {
+      path: 'profile',
+      loadChildren: './profile/profile.module#ProfileModule',
+      data: { breadcrumb: 'Profile', permissions: ['full'] },
+      canActivate: [AuthGuard]
     }
   ]
 }, {

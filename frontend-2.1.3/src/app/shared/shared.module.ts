@@ -7,6 +7,7 @@ import { HttpModule, Http } from '@angular/http';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { LocalStorageModule } from 'angular-2-local-storage';
 import { ToastyModule} from 'ng2-toasty';
+import {CdkTableModule} from '@angular/cdk';
 
 import {
   MaterialModule,
@@ -19,7 +20,26 @@ import {
   MdRadioModule,
   MdButtonModule,
   MdProgressBarModule,
-  MdToolbarModule
+  MdToolbarModule,
+  MdAutocompleteModule,
+  MdButtonToggleModule,
+  MdCheckboxModule,
+  MdChipsModule,
+  MdCoreModule,
+  MdDatepickerModule,
+  MdExpansionModule,
+  MdGridListModule,
+  MdListModule,
+  MdMenuModule,
+  MdProgressSpinnerModule,
+  MdRippleModule,
+  MdSelectModule,
+  MdSidenavModule,
+  MdSliderModule,
+  MdSlideToggleModule,
+  MdSnackBarModule,
+  MdTabsModule,
+  MdTooltipModule,
 } from '@angular/material';
 import { NotificationBarModule } from 'angular2-notification-bar'
 
@@ -32,13 +52,15 @@ import { TabTask } from './tab-activity/tabTask/';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import {MissingTranslationHandler, MissingTranslationHandlerParams} from '@ngx-translate/core';
+import { MissingTranslationHandler, MissingTranslationHandlerParams} from '@ngx-translate/core';
 
 import { AuthInterceptor } from './auth/AuthInterceptor';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 import { ConfirmService } from './service/confirm/confirm.service';
 import { ConfirmDialogComponent }   from './service/confirm/confirm-dialog.component';
+
+// import {MyTranslateService} from './service/mytranslate.service';
 
 export class MyMissingTranslationHandler implements MissingTranslationHandler {
   handle(params: MissingTranslationHandlerParams) {
@@ -57,14 +79,7 @@ export function createTranslateLoader(http: Http) {
 
 @NgModule({
   imports: [
-    RouterModule,
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    HttpModule,
     MaterialModule,
-    MdInputModule,
     MdNativeDateModule,
     MdSelectionModule,
     MdDialogModule,
@@ -74,6 +89,32 @@ export function createTranslateLoader(http: Http) {
     MdButtonModule,
     MdProgressBarModule,
     MdToolbarModule,
+    MdAutocompleteModule,
+    MdButtonToggleModule,
+    MdCheckboxModule,
+    MdChipsModule,
+    MdCoreModule,
+    MdDatepickerModule,
+    MdExpansionModule,
+    MdGridListModule,
+    MdListModule,
+    MdMenuModule,
+    MdProgressSpinnerModule,
+    MdRippleModule,
+    MdSelectModule,
+    MdSidenavModule,
+    MdSliderModule,
+    MdSlideToggleModule,
+    MdSnackBarModule,
+    MdTabsModule,
+    MdTooltipModule,
+    RouterModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    HttpModule,
+    MdInputModule,
     NotificationBarModule,
     LocalStorageModule.withConfig({
       prefix: 'my-app',
@@ -121,7 +162,8 @@ export function createTranslateLoader(http: Http) {
     AuthService,
     ConfirmService,
     AuthGuard,
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    // MyTranslateService
     // NotificationBarService,
   ],
   entryComponents: [

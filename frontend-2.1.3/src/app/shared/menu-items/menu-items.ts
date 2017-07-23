@@ -236,6 +236,14 @@ const MENUITEMS = [
         name: 'user.index'
       }
     ]
+  },
+
+
+  {
+    state: 'profile',
+    name: 'manage.profile',
+    type: 'link',
+    icon: 'view_column'
   }
 ];
 

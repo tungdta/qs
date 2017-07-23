@@ -37,6 +37,9 @@
   "VALIDATION": "Validation",
   "UPLOAD": "Upload",
   "TREE": "Tree",
+  "profile.configNotification":"Config notification",
+  "HELLO":"Config notification",
+
 
   "TABLES": "Tables",
   "FULLSCREEN": "Fullscreen",
