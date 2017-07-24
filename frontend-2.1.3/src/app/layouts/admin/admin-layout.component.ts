@@ -25,15 +25,15 @@ export class AdminLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
   boxed: boolean;
   collapseSidebar: boolean;
   compactSidebar: boolean;
-  currentLang = 'en';
+  currentLang = 'vi';
 
   @ViewChild('sidemenu') sidemenu;
   @ViewChild('root') root;
 
   constructor(private router: Router, public menuItems: MenuItems, public translate: TranslateService, private auth: AuthService,
     private confirmService: ConfirmService) {
-    const browserLang: string = translate.getBrowserLang();
-    translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+    // const browserLang: string = translate.getBrowserLang();
+    // translate.use(browserLang.match(/en|vi/) ? browserLang : 'vi');
   }
 
   ngOnInit(): void {

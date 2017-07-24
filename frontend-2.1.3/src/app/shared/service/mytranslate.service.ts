@@ -6,11 +6,11 @@ import { TranslateService } from '@ngx-translate/core';
 @Injectable()
 export class MyTranslateService {
   constructor(private translate: TranslateService) {
-    this.translate.addLangs(['en', 'fr']);
-    this.translate.setDefaultLang('en');
+    this.translate.addLangs(['en', 'vi']);
+    this.translate.setDefaultLang('vi');
 
     const browserLang: string = this.translate.getBrowserLang();
-    this.translate.use(browserLang.match(/en|vi/) ? browserLang : 'en');
+    this.translate.use(browserLang.match(/en|vi/) ? browserLang : 'vi');
 
   }
   get(key: string, params?: object): string {
