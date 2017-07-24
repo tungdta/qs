@@ -33,7 +33,7 @@ export class AgentQueueService {
     params.set('queue_id', this.searchModel.queue_id);
     return this.http.get(ENDPOINT_SERVICE.GET_AGENT_QUEUE_LIST, { search: params })
       .map((r: Response) => r.json() as AgentQueue[])
-      .catch(this.handleError);
+      // .catch(this.handleError);
   }
 
   getQueueIdByQueueName(queue_name: string): string {
@@ -97,4 +97,3 @@ export class AgentQueueService {
     return Observable.throw(errMsg);
   }
 }
-

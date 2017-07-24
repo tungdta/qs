@@ -50,7 +50,7 @@ export class CompanyService {
 
     return this.http.get(ENDPOINT_SERVICE.GET_COMPANY_LIST, { search: params })
       .map((r: Response) => r.json() as Company[])
-      .catch(this.handleError);
+      // .catch(this.handleError);
     //return Promise.resolve(COMPANY);
   }
 
@@ -141,4 +141,3 @@ export class CompanyService {
     return Observable.throw(errMsg);
   }
 }
-

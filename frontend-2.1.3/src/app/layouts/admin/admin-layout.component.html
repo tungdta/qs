@@ -249,7 +249,7 @@
         <md-checkbox (change)="root.dir = (root.dir == 'rtl' ? 'ltr' : 'rtl')" [align]="end">RTL</md-checkbox>
       </div>
       <div class="pb-0">
-        <md-select placeholder="Language" class="mt-1" [(ngModel)]="currentLang" #langSelect="ngModel" (ngModelChange)="translate.use(currentLang)">
+        <md-select placeholder="Language" class="mt-1" [(ngModel)]="currentLang" #langSelect="ngModel" (ngModelChange)="changeLanguage(currentLang)">
           <md-option *ngFor="let lang of translate.getLangs()" [value]="lang">{{ lang }}</md-option>
         </md-select>
       </div>

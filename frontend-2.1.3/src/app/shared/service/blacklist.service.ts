@@ -28,7 +28,7 @@ export class BlackListService {
         params.set('type_id', searchBlackList.type_id);
         return this.http.get(ENDPOINT_SERVICE.GET_DATA_BLACKLIST, { search: params })
             .map((r: Response) => r.json() as BlackListModel[])
-            .catch(this.handleError);
+            // .catch(this.handleError);
     }
 
     protected handleError(error: Response | any) {

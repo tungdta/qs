@@ -15,7 +15,7 @@ export class AgentListService {
     params.set('agent_id', agent_id);
     return this.http.get(ENDPOINT_SERVICE.GET_AGENT_LIST, { search: params })
       .map((r: Response) => r.json() as string[])
-      .catch(this.handleError);
+      // .catch(this.handleError);
   }
 
   protected handleError(error: Response | any) {

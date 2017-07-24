@@ -1,0 +1,47 @@
+<md-card>
+  <md-card-title>Form validation</md-card-title>
+  <md-card-subtitle>Angular2 custom validation</md-card-subtitle>
+  <form [formGroup]="form">
+    <md-card-content>
+      <div class="mb-1">
+        <md-input-container style="width: 100%">
+          <input mdInput placeholder="Name" [formControl]="form.controls['name']">
+        </md-input-container>
+        <small *ngIf="form.controls['name'].hasError('required') && form.controls['name'].touched" class="mat-text-warn">You must include a first name.</small>
+        <small *ngIf="form.controls['name'].hasError('minlength') && form.controls['name'].touched" class="mat-text-warn">Your first name must be at least 5 characters long.</small>
+        <small *ngIf="form.controls['name'].hasError('maxlength') && form.controls['name'].touched" class="mat-text-warn">Your first name cannot exceed 10 characters.</small>
+      </div>
+
+      <div class="mb-1">
+        <md-input-container style="width: 100%">
+          <input mdInput disabled placeholder="Username">
+        </md-input-container>
+        <!-- <small *ngIf="form.controls['username'].hasError('required') && form.controls['username'].touched" class="mat-text-warn">You must include a first name.</small> -->
+        <!-- <small *ngIf="form.controls['username'].hasError('minlength') && form.controls['username'].touched" class="mat-text-warn">Your first name must be at least 5 characters long.</small> -->
+        <!-- <small *ngIf="form.controls['username'].hasError('maxlength') && form.controls['username'].touched" class="mat-text-warn">Your first name cannot exceed 10 characters.</small> -->
+      </div>
+
+      <div class="mb-1">
+        <md-input-container style="width: 100%">
+          <input mdInput disabled placeholder="Email address">
+        </md-input-container>
+        <!-- <small *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched" class="mat-text-warn">You must include an email address.</small> -->
+        <!-- <small *ngIf="form.controls['email'].errors?.email && form.controls['email'].touched" class="mat-text-warn">You must include a valid email address.</small> -->
+      </div>
+
+
+      <div class="mb-1">
+        <md-input-container style="width: 100%">
+          <input mdInput placeholder="US Phone number (15417543010)" [formControl]="form.controls['phone']" type="text">
+        </md-input-container>
+        <small *ngIf="form.controls['phone'].hasError('required') && form.controls['phone'].touched" class="mat-text-warn">You must include phone number.</small>
+        <small *ngIf="form.controls['phone'].errors?.phone && form.controls['phone'].touched" class="mat-text-warn">You must include a valid phone number.</small>
+      </div>
+
+    </md-card-content>
+    <hr>
+    <md-card-actions>
+      <button md-raised-button color="primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </md-card-actions>
+  </form>
+  <!-- </md-card> -->

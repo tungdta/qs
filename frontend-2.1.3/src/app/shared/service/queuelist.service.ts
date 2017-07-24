@@ -14,7 +14,7 @@ export class QueueListService {
     params.set('queue_name', queue_name);
     return this.http.get(ENDPOINT_SERVICE.GET_QUEUE_LIST, { search: params })
       .map((r: Response) => r.json() as string[])
-      .catch(this.handleError);
+      // .catch(this.handleError);
   }
 
   getQueueListFull(queue_name: string): Observable<string[]> {
@@ -22,7 +22,7 @@ export class QueueListService {
     params.set('queue_name', queue_name);
     return this.http.get(ENDPOINT_SERVICE.GET_QUEUE_LIST_FULL, { search: params })
       .map((r: Response) => r.json() as string[])
-      .catch(this.handleError);
+      // .catch(this.handleError);
   }
 
   protected handleError(error: Response | any) {

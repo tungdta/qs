@@ -56,7 +56,7 @@ export class ContactService {
 
     return this.http.get(ENDPOINT_SERVICE.GET_COMPANY_LIST, { search: params })
       .map((r: Response) => r.json() as Contact[])
-      .catch(this.handleError);
+      // .catch(this.handleError);
     //return Promise.resolve(COMPANY);
   }
 
@@ -67,7 +67,7 @@ export class ContactService {
 
     return this.http.get(ENDPOINT_SERVICE.GET_COMPANY_ITEM, { search: params })
       .map((r: Response) => r.json() as Contact)
-      .catch(this.handleError);
+      // .catch(this.handleError);
   }
 
   getContactDetail(contact_id: string) {
@@ -103,7 +103,7 @@ export class ContactService {
         this.loadDataTable();
         return r;
       })
-      .catch(this.handleError);;
+      // .catch(this.handleError);;
   }
 
   updateContact(
@@ -164,4 +164,3 @@ export class ContactService {
     return Observable.throw(errMsg);
   }
 }
-

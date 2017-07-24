@@ -1,0 +1,81 @@
+<div class="pb-1">
+  <md-card>
+    <md-card-title>
+      <p>Internet mail</p>
+    </md-card-title>
+    <md-card-subtitle>setting</md-card-subtitle>
+
+    <form [formGroup]="form" novalidate>
+      <md-card-content>
+        <div class="mb-1">
+          <md-input-container style="width: 100%">
+            <input mdInput placeholder="Account name" [formControl]="form.controls['accountName']" type="text">
+          </md-input-container>
+          <small *ngIf="form.controls['accountName'].hasError('required') && form.controls['accountName'].touched" class="mat-text-warn">You must include an account name.</small>
+        </div>
+
+        <div class="mb-1">
+          <md-input-container style="width: 100%">
+            <input mdInput placeholder="Display name" [formControl]="form.controls['displayName']" type="text">
+          </md-input-container>
+          <small *ngIf="form.controls['displayName'].hasError('required') && form.controls['displayName'].touched" class="mat-text-warn">You must include a display name.</small>
+        </div>
+
+        <div class="mb-1">
+          <md-input-container style="width: 100%">
+            <input mdInput placeholder="Password" [formControl]="form.controls['password']" type="password">
+          </md-input-container>
+          <small *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched" class="mat-text-warn">You must include password.</small>
+        </div>
+
+        <div class="mb-1">
+          <md-input-container style="width: 100%">
+            <input mdInput placeholder="Incoming IMAP server" [formControl]="form.controls['incomingImapServer']" type="text">
+          </md-input-container>
+          <small *ngIf="form.controls['incomingImapServer'].hasError('required') && form.controls['incomingImapServer'].touched" class="mat-text-warn">You must include IMAP server.</small>
+        </div>
+
+        <div class="mb-1">
+          <md-input-container style="width: 100%">
+            <input mdInput placeholder="Incoming IMAP port" [formControl]="form.controls['incomingImapPort']" type="number">
+          </md-input-container>
+          <small *ngIf="form.controls['incomingImapPort'].hasError('required') && form.controls['incomingImapPort'].touched" class="mat-text-warn">You must include IMAP port.</small>
+        </div>
+
+        <div class="mb-1">
+          <section>
+            <md-checkbox [checked]="checked">
+              Incoming use SSL
+            </md-checkbox>
+          </section>
+        </div>
+
+        <div class="mb-1">
+          <md-input-container style="width: 100%">
+            <input mdInput placeholder="Outgoing IMAP server" [formControl]="form.controls['outgoingImapServer']" type="text">
+          </md-input-container>
+          <small *ngIf="form.controls['outgoingImapServer'].hasError('required') && form.controls['outgoingImapServer'].touched" class="mat-text-warn">You must include IMAP server.</small>
+        </div>
+
+        <div class="mb-1">
+          <md-input-container style="width: 100%">
+            <input mdInput placeholder="Outgoing IMAP port" [formControl]="form.controls['outgoingImapPort']" type="number">
+          </md-input-container>
+          <small *ngIf="form.controls['outgoingImapPort'].hasError('required') && form.controls['outgoingImapPort'].touched" class="mat-text-warn">You must include IMAP port.</small>
+        </div>
+
+        <div class="mb-1">
+          <section>
+            <md-checkbox [checked]="checked">
+              Outgoing use SSL
+            </md-checkbox>
+          </section>
+        </div>
+      </md-card-content>
+      <hr>
+      <md-card-actions>
+        <button md-raised-button color="primary" type="submit" [disabled]="!form.valid">Submit</button>
+      </md-card-actions>
+    </form>
+  </md-card>
+</div>

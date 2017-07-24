@@ -7,5 +7,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ProfileConfigNotificationComponent {
 
+  firstToggle: boolean;
+
+  onFormSubmit() {
+    alert(`You submitted the form.`);
+  }
+
   constructor() { }
 }

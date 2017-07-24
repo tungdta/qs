@@ -6,9 +6,11 @@ import { Subscription } from 'rxjs/Subscription';
 import { TranslateService } from '@ngx-translate/core';
 import * as Ps from 'perfect-scrollbar';
 // AuthService
-import {AuthService} from '../../shared/auth/auth.service';
+import { AuthService } from '../../shared/auth/auth.service';
 // ConfirmService
 import { ConfirmService } from '../../shared/service/confirm/confirm.service';
+// sessionStorage
+import { LocalStorageService } from 'angular-2-local-storage';
 
 @Component({
   selector: 'app-layout',
@@ -25,15 +27,28 @@ export class AdminLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
   boxed: boolean;
   collapseSidebar: boolean;
   compactSidebar: boolean;
-  currentLang = 'vi';
+  currentLang = '';
 
   @ViewChild('sidemenu') sidemenu;
   @ViewChild('root') root;
 
   constructor(private router: Router, public menuItems: MenuItems, public translate: TranslateService, private auth: AuthService,
-    private confirmService: ConfirmService) {
+    private confirmService: ConfirmService, private sessionStorage: LocalStorageService) {
     // const browserLang: string = translate.getBrowserLang();
-    // translate.use(browserLang.match(/en|vi/) ? browserLang : 'vi');
+    translate.addLangs(['en', 'vi']);
+    translate.setDefaultLang('vi');
+    this.currentLang = sessionStorage.get('currentLang') || 'vi';
+    translate.use(this.currentLang.match(/en|vi/) ? this.currentLang : 'vi');
+  }
+
+
+  changeLanguage(lang): void {
+    console.log('Change language: ' + lang);
+    this.sessionStorage.set('currentLang', lang);
+
+    this.currentLang = this.sessionStorage.get('currentLang') || 'vi';
+
+    this.translate.use(this.currentLang.match(/en|vi/) ? this.currentLang : 'vi');
   }
 
   ngOnInit(): void {
