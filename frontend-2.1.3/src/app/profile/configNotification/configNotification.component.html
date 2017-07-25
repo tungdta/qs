@@ -1,24 +1,17 @@
 <md-card>
   <md-card-title>Slide Toggle</md-card-title>
-  <md-card-subtitle>MdSlideToggle is a two-state control, which can be also called switch.</md-card-subtitle>
+  <md-card-subtitle>
+    <p>Example where the slide toggle is required inside of a form.</p>
+  </md-card-subtitle>
   <form #form="ngForm" (ngSubmit)="onFormSubmit()" ngNativeValidate>
     <md-card-content>
 
-      <md-slide-toggle name="check" color="primary" [(ngModel)]="firstToggle">
-        Default Slide Toggle
-      </md-slide-toggle>
-
-      <p>Example where the slide toggle is required inside of a form.</p>
-
-
-
-      <md-slide-toggle name="slideToggle" required ngModel>
-        Slide Toggle
-      </md-slide-toggle>
-
-
-
-
+      <md-list>
+        <md-list-item *ngFor="let system of systems">
+          <span fxFlex>{{system.name}}</span>
+          <md-slide-toggle [ngModelOptions]="{standalone: true}" [(ngModel)]="system.on"></md-slide-toggle>
+        </md-list-item>
+      </md-list>
     </md-card-content>
     <md-card-actions>
       <button md-raised-button color="primary" type="submit">Submit</button>

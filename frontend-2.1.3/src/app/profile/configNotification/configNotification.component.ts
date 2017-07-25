@@ -9,6 +9,21 @@ export class ProfileConfigNotificationComponent {
 
   firstToggle: boolean;
 
+  systems: Object[] = [{
+    name: 'Lights',
+    on: false,
+  }, {
+    name: 'Surround Sound',
+    on: true,
+  }, {
+    name: 'T.V.',
+    on: true,
+  }, {
+    name: 'Entertainment System',
+    on: true,
+  }, ];
+
+
   onFormSubmit() {
     alert(`You submitted the form.`);
   }
