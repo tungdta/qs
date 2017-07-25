@@ -1,15 +1,17 @@
 <p class="ma-1">Move stuff between these two containers. Note how the stuff gets inserted near the mouse pointer? Great stuff.</p>
 
-<div  fxLayout="row" fxLayoutWrap="wrap">
+<!-- <div fxLayout="row" fxLayoutWrap="wrap">
   <md-card fxFlex>
     <md-list [dragula]='"first-bag"'>
       <ng-template ngFor let-todo [ngForOf]="todos">
         <md-list-item>
-          <div  fxLayout="row" fxLayoutAlign="start center" style="width: 100%;">
+          <div fxLayout="row" fxLayoutAlign="start center" style="width: 100%;">
             <div fxFlex>
               <md-checkbox [checked]="todo.finished">{{todo.name}}</md-checkbox>
             </div>
-            <div><md-icon>more_horiz</md-icon></div>
+            <div>
+              <md-icon>more_horiz</md-icon>
+            </div>
           </div>
         </md-list-item>
       </ng-template>
@@ -18,7 +20,7 @@
   <md-card fxFlex>
     <md-nav-list [dragula]='"first-bag"'>
       <md-list-item *ngFor="let link of links">
-        <div  fxLayout="row" fxLayoutAlign="start center" style="width: 100%;">
+        <div fxLayout="row" fxLayoutAlign="start center" style="width: 100%;">
           <div fxFlex>
             <a md-line href="http://www.google.com" fxFlex>{{ link.name }}</a>
           </div>
@@ -29,4 +31,88 @@
       </md-list-item>
     </md-nav-list>
   </md-card>
+</div> -->
+
+<div fxLayout="row" fxLayoutWrap="wrap">
+  <md-card fxFlex>
+    <md-card-content class="pa-0">
+      <md-grid-list dnd-sortable-container [sortableData]="dogs" cols="4" rowHeight="200px">
+        <md-grid-tile *ngFor="let dog of dogs; let i = index " style="background:gray" dnd-sortable [sortableIndex]="i">
+          <img [alt]="dog.name" src="https://material.angularjs.org/material2_assets/ngconf/{{dog.name}}.png">
+          <md-grid-tile-header>
+            <h3 md-line>{{dog.name}}</h3>
+            <span md-line>Human: {{dog.human}}</span>
+            <md-icon (click)="remove(i)">close</md-icon>
+          </md-grid-tile-header>
+        </md-grid-tile>
+      </md-grid-list>
+    </md-card-content>
+  </md-card>
+</div>
+
+<div fxLayout="row" fxLayoutWrap="wrap">
+  <md-card fxFlex>
+    <md-list>
+      <ng-template ngFor let-dog [ngForOf]="dogs">
+        <md-list-item>
+          {{ dog | json}}
+        </md-list-item>
+      </ng-template>
+    </md-list>
+  </md-card>
+</div>
+
+<div fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="center start">
+  <div fxFlex.gt-md="30" fxFlex.gt-sm="100" fxFlex="100">
+    <md-card class="mat-card-top">
+      <md-card-content>
+        <form class="mb-1">
+          <md-input-container style="width: 100%">
+            <input mdInput placeholder="Filter nodes" #filter (keyup)="filterNodes(filter.value, tree)" placeholder="filter nodes">
+          </md-input-container>
+        </form>
+
+        <tree-root #tree [nodes]="nodes" [options]="customTemplateStringOptions" [focused]="true" (activate)="onEvent($event)">
+          <ng-template #treeNodeTemplate let-node>
+            <span title="{{node.data.subTitle}}">{{ node.data.name }}</span>
+            <span class="pull-right">{{ childrenCount(node) }}</span>
+            <!-- <button (click)="go($event)">Custom Action</button> -->
+          </ng-template>
+          <ng-template #loadingTemplate>Loading....</ng-template>
+        </tree-root>
+      </md-card-content>
+    </md-card>
+  </div>
+
+  <div fxFlex.gt-md="50" fxFlex.gt-sm="100" fxFlex="100" class="pl-1 pr-1">
+
+    <md-card>
+      <md-card-title>Form validation</md-card-title>
+      <md-card-subtitle>Angular2 custom validation</md-card-subtitle>
+      <form>
+        <md-card-content>
+          <div class="mb-1">
+            <md-input-container style="width: 100%">
+              <input mdInput placeholder="Name" name="name" [(ngModel)]="currentNode.name">
+            </md-input-container>
+          </div>
+          <div class="mb-1">
+            <md-input-container style="width: 100%">
+              <input mdInput placeholder="Subtitle" name="subTitle" [(ngModel)]="currentNode.subTitle">
+            </md-input-container>
+          </div>
+
+        </md-card-content>
+        <hr>
+        <!-- <md-card-actions>
+          <button md-raised-button md-button-sm color="primary" (click)="saveNode()">
+            Save
+          </button>
+          <button md-raised-button md-button-sm color="primary" (click)="cancel()">
+            Delete
+          </button>
+        </md-card-actions> -->
+      </form>
+    </md-card>
+  </div>
 </div>

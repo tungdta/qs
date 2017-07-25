@@ -244,6 +244,13 @@ const MENUITEMS = [
     name: 'manage.profile',
     type: 'link',
     icon: 'view_column'
+  },
+
+  {
+    state: 'dragndrop',
+    name: 'DEMO',
+    type: 'link',
+    icon: 'view_column'
   }
 ];
 

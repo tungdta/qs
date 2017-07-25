@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -8,6 +9,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common
 import { LocalStorageModule } from 'angular-2-local-storage';
 import { ToastyModule} from 'ng2-toasty';
 import {CdkTableModule} from '@angular/cdk';
+
+import {DndModule} from 'ng2-dnd';
 
 import {
   MaterialModule,
@@ -57,8 +60,11 @@ import { MissingTranslationHandler, MissingTranslationHandlerParams} from '@ngx-
 import { AuthInterceptor } from './auth/AuthInterceptor';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
+import { AuthDisabledDirective } from './auth/authDisabled.directive';
+import { AuthHideDirective } from './auth/authHide.directive';
 import { ConfirmService } from './service/confirm/confirm.service';
 import { ConfirmDialogComponent }   from './service/confirm/confirm-dialog.component';
+import { TreeModule } from 'angular-tree-component';
 
 // import {MyTranslateService} from './service/mytranslate.service';
 
@@ -79,6 +85,7 @@ export function createTranslateLoader(http: Http) {
 
 @NgModule({
   imports: [
+    FlexLayoutModule,
     MaterialModule,
     MdNativeDateModule,
     MdSelectionModule,
@@ -128,7 +135,8 @@ export function createTranslateLoader(http: Http) {
       },
       missingTranslationHandler: { provide: MissingTranslationHandler, useClass: MyMissingTranslationHandler }
     }),
-    ToastyModule.forRoot()
+    ToastyModule.forRoot(),
+    DndModule.forRoot()
     // AgentQueue
     // ,MdButton
   ],
@@ -140,7 +148,9 @@ export function createTranslateLoader(http: Http) {
     PageBreadcrumbComponent,
     BreadcrumbComponent,
     TabTask,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    AuthDisabledDirective,
+    AuthHideDirective
   ],
   exports: [
     AccordionAnchorDirective,
@@ -190,6 +200,9 @@ export function createTranslateLoader(http: Http) {
     HttpClientModule,
     HttpModule,
     MdInputModule,
+    DndModule,
+    TreeModule,
+    FlexLayoutModule
     // AgentQueue
   ],
   // entryComponents: [AgentQueueDialog],
