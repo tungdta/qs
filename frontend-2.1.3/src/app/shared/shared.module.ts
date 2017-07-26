@@ -70,14 +70,12 @@ import { ConfirmService } from './service/confirm/confirm.service';
 import { ConfirmDialogComponent }   from './service/confirm/confirm-dialog.component';
 import { TreeModule } from 'angular-tree-component';
 
-import {CustomMissingTranslationHandler} from '../shared/service/CustomMissingTranslationHandler';
 
-// import {MyTranslateService} from './service/mytranslate.service';
 
 export class MyMissingTranslationHandler implements MissingTranslationHandler {
   handle(params: MissingTranslationHandlerParams) {
-    console.log('Thiếu giá trị i18n: ' + params['key']);
-    return params['key'];
+    console.warn(`Translation not found for key  ${params.key} in ${params.translateService.currentLang}.json`);
+    return `**${params['key']}**`;
   }
 }
 
@@ -87,7 +85,6 @@ export function createTranslateLoader(http: Http) {
 }
 
 
-// import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate/ng2-translate';
 
 @NgModule({
   imports: [
@@ -139,7 +136,7 @@ export function createTranslateLoader(http: Http) {
         useFactory: (createTranslateLoader),
         deps: [Http]
       },
-      missingTranslationHandler: { provide: MissingTranslationHandler, useClass: CustomMissingTranslationHandler }
+      missingTranslationHandler: { provide: MissingTranslationHandler, useClass: MyMissingTranslationHandler }
     }),
     ToastyModule.forRoot(),
     DndModule.forRoot()
