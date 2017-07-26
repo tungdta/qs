@@ -5,7 +5,7 @@ import { LocalStorageService } from 'angular-2-local-storage';
 
 @Component({
   selector: 'app-root',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
   <router-outlet> </router-outlet>
   <ng2-toasty></ng2-toasty>

@@ -9,7 +9,6 @@ import { SharedModule } from '../shared/shared.module';
 import { DragndropRoutes } from './dragndrop.routing';
 import { DragndropComponent } from './dragndrop.component';
 
-
 import { DndModule } from 'ng2-dnd';
 
 @NgModule({
