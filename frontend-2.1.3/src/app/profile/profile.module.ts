@@ -19,6 +19,7 @@ import {InternetMailSettingsComponent} from './emailSettings/internetMailSetting
 import { ProfileService} from './profile.service';
 
 import {SharedModule} from '../shared/shared.module';
+import { HttpModule, Http } from '@angular/http';
 
 
 @NgModule({

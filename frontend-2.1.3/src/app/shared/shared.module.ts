@@ -8,7 +8,11 @@ import { HttpModule, Http } from '@angular/http';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { LocalStorageModule } from 'angular-2-local-storage';
 import { ToastyModule} from 'ng2-toasty';
+import { TranslateService } from '@ngx-translate/core';
 import {CdkTableModule} from '@angular/cdk';
+// sessionStorage
+import { LocalStorageService } from 'angular-2-local-storage';
+
 
 import {DndModule} from 'ng2-dnd';
 
@@ -65,6 +69,8 @@ import { AuthHideDirective } from './auth/authHide.directive';
 import { ConfirmService } from './service/confirm/confirm.service';
 import { ConfirmDialogComponent }   from './service/confirm/confirm-dialog.component';
 import { TreeModule } from 'angular-tree-component';
+
+import {CustomMissingTranslationHandler} from '../shared/service/CustomMissingTranslationHandler';
 
 // import {MyTranslateService} from './service/mytranslate.service';
 
@@ -133,7 +139,7 @@ export function createTranslateLoader(http: Http) {
         useFactory: (createTranslateLoader),
         deps: [Http]
       },
-      missingTranslationHandler: { provide: MissingTranslationHandler, useClass: MyMissingTranslationHandler }
+      missingTranslationHandler: { provide: MissingTranslationHandler, useClass: CustomMissingTranslationHandler }
     }),
     ToastyModule.forRoot(),
     DndModule.forRoot()
@@ -219,4 +225,14 @@ export function createTranslateLoader(http: Http) {
     ConfirmDialogComponent
   ]
 })
-export class SharedModule { }
+
+export class SharedModule {
+  public static translate;
+  constructor(translate: TranslateService, private sessionStorage: LocalStorageService) {
+      SharedModule.translate = translate;
+      translate.addLangs(['en', 'vi']);
+      translate.setDefaultLang('vi');
+      const currentLang: string = sessionStorage.get('currentLang') || 'vi';
+      translate.use(currentLang.match(/en|vi/) ? currentLang : 'vi');
+  }
+}

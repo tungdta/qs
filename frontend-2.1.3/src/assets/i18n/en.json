@@ -160,5 +160,15 @@
   "title.comfirm": "Confirm",
   "confirm.dialog.ok": "OK",
   "confirm.dialog.cancel": "Cancel",
-  "confirm.logout": "Do you want to log out?"
+  "confirm.logout": "Do you want to log out?",
+  "profile.edit": "Profile EN",
+  "profile.changePass": "Password EN",
+  "profile.configNotification": "Notification config EN",
+  "profile.emailSettings": "Mail settings EN",
+  "Blacklist": "Blacklist",
+  "ADMIN": "Manageuser",
+  "department.index": "Đơn vị",
+  "user.index": "Người dùng",
+  "manage.profile": "Thông tin cá nhân"
+
 }

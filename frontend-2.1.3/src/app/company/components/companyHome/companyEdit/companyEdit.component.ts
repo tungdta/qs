@@ -46,7 +46,7 @@ export class CompanyEdit implements OnInit {
         this.form = this.fb.group({
             name_control: [null, Validators.compose([Validators.required])],
             phone_control: [null],
-            email_control: [null,],
+            email_control: [null],
             parent_org_control: [null],
             address_control: [null],
             website_control: [null],

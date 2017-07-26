@@ -12,6 +12,8 @@ import { ConfirmService } from '../../shared/service/confirm/confirm.service';
 // sessionStorage
 import { LocalStorageService } from 'angular-2-local-storage';
 
+import {SharedModule} from '../../shared/shared.module';
+
 @Component({
   selector: 'app-layout',
   templateUrl: './admin-layout.component.html'
@@ -44,10 +46,12 @@ export class AdminLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
 
   changeLanguage(lang): void {
     console.log('Change language: ' + lang);
+
     this.sessionStorage.set('currentLang', lang);
 
     this.currentLang = this.sessionStorage.get('currentLang') || 'vi';
-
+    // this.translate.use(lang);
+    SharedModule.translate.use(this.currentLang.match(/en|vi/) ? this.currentLang : 'vi');
     this.translate.use(this.currentLang.match(/en|vi/) ? this.currentLang : 'vi');
   }
 
