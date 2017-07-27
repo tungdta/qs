@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, Http } from '@angular/http';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient, HttpClientXsrfModule } from '@angular/common/http';
 import { LocalStorageModule } from 'angular-2-local-storage';
-import { ToastyModule } from 'ng2-toasty';
+// import { ToastyService, ToastyConfig, ToastyModule } from 'ng2-toasty';
 import { TranslateService } from '@ngx-translate/core';
 import { CdkTableModule } from '@angular/cdk';
 // sessionStorage
@@ -138,7 +138,7 @@ export function createTranslateLoader(http: Http) {
       },
       missingTranslationHandler: { provide: MissingTranslationHandler, useClass: MyMissingTranslationHandler }
     }),
-    ToastyModule.forRoot(),
+    // ToastyModule.forRoot(),
     DndModule.forRoot()
     // AgentQueue
     // ,MdButton
@@ -165,7 +165,7 @@ export function createTranslateLoader(http: Http) {
     TabTask,
     LocalStorageModule,
     TranslateModule,
-    ToastyModule,
+    // ToastyModule,
     ConfirmDialogComponent,
     MaterialModule,
     MdNativeDateModule,
@@ -214,8 +214,7 @@ export function createTranslateLoader(http: Http) {
     AuthService,
     ConfirmService,
     AuthGuard,
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    TranslateService
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
     // MyTranslateService
     // NotificationBarService,
   ],

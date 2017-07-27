@@ -40,7 +40,6 @@ export class AdminLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
     private confirmService: ConfirmService, private sessionStorage: LocalStorageService) {
     // const browserLang: string = translate.getBrowserLang();
     translate.addLangs(['en', 'vi']);
-    // translate.setDefaultLang('vi');
     this.currentLang = sessionStorage.get('currentLang') || 'en';
     translate.use(this.currentLang.match(/en|vi/) ? this.currentLang : 'en');
   }

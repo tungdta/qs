@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ConfirmService } from '../../shared/service/confirm/confirm.service';
 
 @Component({
   selector: 'my-profile-config-notification',
   templateUrl: './configNotification.component.html',
 })
 export class ProfileConfigNotificationComponent {
+
 
   firstToggle: boolean;
 
@@ -23,10 +25,10 @@ export class ProfileConfigNotificationComponent {
     on: true,
   }, ];
 
+  constructor(private confirm: ConfirmService) { }
 
   onFormSubmit() {
-    alert(`You submitted the form.`);
+    this.confirm.success('test');
   }
 
-  constructor() { }
 }

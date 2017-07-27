@@ -14,7 +14,6 @@ import { LocalStorageService } from 'angular-2-local-storage';
 export class AppComponent {
   constructor(translate: TranslateService, sessionStorage: LocalStorageService) {
     translate.addLangs(['en', 'vi']);
-    translate.setDefaultLang('en');
     const currentLang: string = sessionStorage.get('currentLang') || 'en';
     translate.use(currentLang.match(/en|vi/) ? currentLang : 'en');
   }

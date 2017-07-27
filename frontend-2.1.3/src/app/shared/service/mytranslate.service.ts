@@ -8,11 +8,8 @@ import { LocalStorageService } from 'angular-2-local-storage';
 @Injectable()
 export class MyTranslateService {
   constructor(private translate: TranslateService, private sessionStorage: LocalStorageService) {
-    // this.translate.addLangs(['en', 'vi']);
-    // this.translate.setDefaultLang('vi');
-    //
-    const browserLang: string = sessionStorage.get('currentLang') || 'vi';
-    this.translate.use(browserLang.match(/en|vi/) ? browserLang : 'vi');
+    const browserLang: string = sessionStorage.get('currentLang') || 'en';
+    this.translate.use(browserLang.match(/en|vi/) ? browserLang : 'en');
 
   }
   get(key: string, params?: object): string {

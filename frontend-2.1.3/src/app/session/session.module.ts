@@ -14,21 +14,13 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { ResetPasswordComponent } from './resetPassword/resetPassword.component';
 
-import {SesionService} from './session.service';
-import {SharedModule} from '../shared/shared.module';
+import { SesionService } from './session.service';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     SharedModule,
-    RouterModule.forChild(SessionRoutes),
-    MdIconModule,
-    MdCardModule,
-    MdInputModule,
-    MdCheckboxModule,
-    MdButtonModule,
-    FlexLayoutModule,
-    FormsModule,
-    ReactiveFormsModule
+	RouterModule.forChild(SessionRoutes),
   ],
   declarations: [
     NotFoundComponent,

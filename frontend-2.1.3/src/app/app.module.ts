@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
 import { SharedModule } from './shared/shared.module';
+import {CoreModule} from './core.module';
 
 
 @NgModule({
@@ -26,13 +27,16 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    SharedModule,
     RouterModule.forRoot(AppRoutes),
     FormsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    SharedModule,
+    CoreModule
+
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [
     AppComponent
   ]
