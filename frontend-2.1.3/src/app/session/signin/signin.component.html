@@ -5,30 +5,30 @@
         <md-card-content>
           <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="text-xs-center pb-1">
-              <img src="assets/images/logo-dark.png" alt=""/>
-              <p class="mat-text-muted">Sign in with your app id to continue.</p>
+              <img src="assets/images/logo-dark.png" alt="" />
+              <p class="mat-text-muted">{{'login.subTitile' | translate}}</p>
             </div>
             <div fxLayout="column" fxLayoutAlign="space-around">
               <div class="pb-1">
                 <md-input-container style="width: 100%">
-                  <input mdInput placeholder="Username" [formControl]="form.controls['uname']">
+                  <input mdInput placeholder="{{'login.username' | translate}}" [formControl]="form.controls['uname']">
                 </md-input-container>
                 <small *ngIf="form.controls['uname'].hasError('required') && form.controls['uname'].touched" class="mat-text-warn">Username is required.</small>
               </div>
               <div class="pb-1">
                 <md-input-container style="width: 100%">
-                  <input mdInput type="password" placeholder="Password" [formControl]="form.controls['password']">
+                  <input mdInput type="password" placeholder="{{'login.password' | translate}}" [formControl]="form.controls['password']">
                 </md-input-container>
                 <small *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched" class="mat-text-warn">Password is required.</small>
               </div>
-              <div class="pb-1">
+              <!-- <div class="pb-1">
                 <md-checkbox>Stay logged in</md-checkbox>
-              </div>
-              <button md-raised-button color="primary" type="submit" [disabled]="!form.valid">Login</button>
+              </div> -->
+              <button md-raised-button color="primary" type="submit" [disabled]="!form.valid">{{'login.button.login' | translate}}</button>
             </div>
             <div class="pt-1 pb-1 text-xs-center">
-              <a [routerLink]="['/session/forgot']">Forgot password?</a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <a [routerLink]="['/session/signup']">Sign up for a new account.</a>
+              <a [routerLink]="['/session/forgot']">{{'login.link.forgot' | translate}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+              <a [routerLink]="['/session/signup']">{{'login.link.signup' | translate}}</a>
             </div>
           </form>
         </md-card-content>

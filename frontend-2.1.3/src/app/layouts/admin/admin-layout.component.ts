@@ -30,6 +30,8 @@ export class AdminLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
   collapseSidebar: boolean;
   compactSidebar: boolean;
   currentLang = '';
+  notificationEnable: boolean;
+  notificationUnreadCount: number;
 
   @ViewChild('sidemenu') sidemenu;
   @ViewChild('root') root;
@@ -38,9 +40,9 @@ export class AdminLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
     private confirmService: ConfirmService, private sessionStorage: LocalStorageService) {
     // const browserLang: string = translate.getBrowserLang();
     translate.addLangs(['en', 'vi']);
-    translate.setDefaultLang('vi');
-    this.currentLang = sessionStorage.get('currentLang') || 'vi';
-    translate.use(this.currentLang.match(/en|vi/) ? this.currentLang : 'vi');
+    // translate.setDefaultLang('vi');
+    this.currentLang = sessionStorage.get('currentLang') || 'en';
+    translate.use(this.currentLang.match(/en|vi/) ? this.currentLang : 'en');
   }
 
 
@@ -73,6 +75,10 @@ export class AdminLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
 
     // TueLD
     this.compactSidebar = true;
+
+    this.notificationEnable = false;
+
+    this.notificationUnreadCount = 6;
   }
 
   ngAfterViewInit(): void {
@@ -153,6 +159,11 @@ export class AdminLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
       this.auth.logout();
       this.router.navigate(['/session/signin']);
     });
+  }
 
+  toggleNotification(): void {
+    this.notificationEnable = !this.notificationEnable;
+    this.confirmService.success('notification.disable.enable.success');
+    console.log('Disable/Enable notification in backend');
   }
 }

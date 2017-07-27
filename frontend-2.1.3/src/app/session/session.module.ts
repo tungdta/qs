@@ -15,10 +15,11 @@ import { SignupComponent } from './signup/signup.component';
 import { ResetPasswordComponent } from './resetPassword/resetPassword.component';
 
 import {SesionService} from './session.service';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
+    SharedModule,
     RouterModule.forChild(SessionRoutes),
     MdIconModule,
     MdCardModule,
@@ -43,4 +44,4 @@ import {SesionService} from './session.service';
   ]
 })
 
-export class SessionModule {}
+export class SessionModule { }

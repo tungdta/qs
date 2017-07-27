@@ -1,20 +1,57 @@
 <md-card>
-  <md-card-title>Slide Toggle</md-card-title>
+  <md-card-title>{{'profile.notification.title' | translate}}</md-card-title>
   <md-card-subtitle>
-    <p>Example where the slide toggle is required inside of a form.</p>
+    {{'profile.notification.title.description' | translate}}
   </md-card-subtitle>
   <form #form="ngForm" (ngSubmit)="onFormSubmit()" ngNativeValidate>
+    <md-card-subtitle>
+      {{'profile.notification.config.email' | translate}}
+    </md-card-subtitle>
     <md-card-content>
-
       <md-list>
-        <md-list-item *ngFor="let system of systems">
-          <span fxFlex>{{system.name}}</span>
-          <md-slide-toggle [ngModelOptions]="{standalone: true}" [(ngModel)]="system.on"></md-slide-toggle>
+        <md-list-item>
+          <span fxFlex>{{"profile.notification.taskAssignToMe" | translate}}</span>
+          <md-slide-toggle></md-slide-toggle>
+        </md-list-item>
+        <md-list-item>
+          <span fxFlex>{{"profile.notification.taskToDeadline" | translate}}</span>
+          <md-slide-toggle></md-slide-toggle>
+        </md-list-item>
+        <md-list-item>
+          <span fxFlex>{{"profile.notification.dealAssignToMe" | translate}}</span>
+          <md-slide-toggle></md-slide-toggle>
+        </md-list-item>
+        <md-list-item>
+          <span fxFlex>{{"profile.notification.dealChangeStatus" | translate}}</span>
+          <md-slide-toggle></md-slide-toggle>
+        </md-list-item>
+      </md-list>
+    </md-card-content>
+    <md-card-subtitle>
+      {{'profile.notification.config.notification' | translate}}
+    </md-card-subtitle>
+    <md-card-content>
+      <md-list>
+        <md-list-item>
+          <span fxFlex>{{"profile.notification.taskAssignToMe" | translate}}</span>
+          <md-slide-toggle></md-slide-toggle>
+        </md-list-item>
+        <md-list-item>
+          <span fxFlex>{{"profile.notification.taskToDeadline" | translate}}</span>
+          <md-slide-toggle></md-slide-toggle>
+        </md-list-item>
+        <md-list-item>
+          <span fxFlex>{{"profile.notification.dealAssignToMe" | translate}}</span>
+          <md-slide-toggle></md-slide-toggle>
+        </md-list-item>
+        <md-list-item>
+          <span fxFlex>{{"profile.notification.dealChangeStatus" | translate}}</span>
+          <md-slide-toggle></md-slide-toggle>
         </md-list-item>
       </md-list>
     </md-card-content>
     <md-card-actions>
-      <button md-raised-button color="primary" type="submit">Submit</button>
+      <button md-raised-button color="primary" type="submit">{{'button.save' | translate}}</button>
     </md-card-actions>
   </form>
 </md-card>

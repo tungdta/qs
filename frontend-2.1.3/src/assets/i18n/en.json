@@ -1,5 +1,55 @@
 {
   "HOME": "Home",
+  "login.subTitile": "Sign in with your app id to continue.",
+  "login.username": "Username",
+  "login.password": "Password",
+  "login.link.forgot": "Forgot password?",
+  "login.link.signup": "Sign up for a new account.",
+  "login.button.login": "Login",
+  "forgot.subTitile": "Enter your email and we'll send you instructions on how to reset your password",
+  "forgot.email": "Email address",
+  "forgot.button.login": "Login",
+  "forgot.link.login": "Access your account",
+  "forgot.link.signup": "Sign up for a new account",
+  "signup.subTitile": "Create an app id to continue.",
+  "signup.name": "Name",
+  "signup.username": "Username",
+  "signup.password": "Password",
+  "signup.confirmPassword": "Confirm password",
+  "signup.email": "Email address",
+  "signup.phone": "Phone",
+  "signup.department": "Department",
+  "signup.policy": "I have read and agree to the terms of service.",
+  "signup.button.create": "Create your account",
+  "signup.link.forgot": "Forgot password?",
+  "signup.link.login": "Access your account.",
+  "validate.required": "Required",
+  "validate.invalid.format": "Invalid format",
+  "validate.password.notMatch": "Password does not match",
+  "resetPassword.subTitile": "Enter your password",
+  "resetPassword.password": "Password",
+  "resetPassword.confirmPassword": "Confirm password",
+  "resetPassword.button.submit": "Submit",
+  "resetPassword.link.forgot": "Forgot password?",
+  "resetPassword.link.signup": "Sign up for a new account",
+  "login.success": "Login successful",
+  "titile.confirm": "Confirm",
+  "confirm.logout": "Do you want to log out?",
+  "confirm.dialog.ok": "OK",
+  "confirm.dialog.cancel": "Cancel",
+  "notification.disable.enable.success": "Disable/Enable notification",
+  "menu.disable.notification": "Disable notification",
+  "menu.enable.notification": "Enable notification",
+
+
+
+
+
+
+
+
+
+
 
   "APPS": "Apps",
   "CALENDAR": "Calendar",
@@ -37,8 +87,8 @@
   "VALIDATION": "Validation",
   "UPLOAD": "Upload",
   "TREE": "Tree",
-  "profile.configNotification":"Config notification",
-  "HELLO":"Config notification",
+  "profile.configNotification": "Config notification",
+  "HELLO": "Config notification",
 
 
   "TABLES": "Tables",

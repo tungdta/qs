@@ -11,7 +11,7 @@ const confirmPassword = new FormControl('', CustomValidators.equalTo(password));
   selector: 'my-profile-password',
   templateUrl: './password.component.html',
 })
-export class ProfilePasswordComponent {
+export class ProfilePasswordComponent implements OnInit {
   public form: FormGroup;
   constructor(private fb: FormBuilder) { }
   ngOnInit() {

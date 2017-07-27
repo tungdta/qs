@@ -1,42 +1,42 @@
 <md-card fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="center stretch">
   <div fxFlex.gt-sm="75%" fxFlex="100%">
-    <md-card-title>Form validation</md-card-title>
-    <md-card-subtitle>Angular2 custom validation</md-card-subtitle>
+    <md-card-title>{{'profile.edit.title' | translate}}</md-card-title>
+    <md-card-subtitle>{{'profile.edit.title.description' | translate}}</md-card-subtitle>
     <form [formGroup]="form">
       <md-card-content>
         <div class="mb-1">
           <md-input-container style="width: 100%">
-            <input mdInput placeholder="Name" [formControl]="form.controls['name']">
+            <input mdInput placeholder="{{'profile.edit.name' | translate}}" [formControl]="form.controls['name']">
           </md-input-container>
-          <small *ngIf="form.controls['name'].hasError('required') && form.controls['name'].touched" class="mat-text-warn">You must include a first name.</small>
-          <small *ngIf="form.controls['name'].hasError('minlength') && form.controls['name'].touched" class="mat-text-warn">Your first name must be at least 5 characters long.</small>
-          <small *ngIf="form.controls['name'].hasError('maxlength') && form.controls['name'].touched" class="mat-text-warn">Your first name cannot exceed 10 characters.</small>
+          <small *ngIf="form.controls['name'].hasError('required') && form.controls['name'].touched" class="mat-text-warn">{{'validate.required' | translate}}</small>
+          <small *ngIf="form.controls['name'].hasError('minlength') && form.controls['name'].touched" class="mat-text-warn" [translate]="'validate.minLength'" [translateParams]="{'length':'5'}"></small>
+          <small *ngIf="form.controls['name'].hasError('maxlength') && form.controls['name'].touched" class="mat-text-warn" [translate]="'validate.maxLength'" [translateParams]="{'length':'10'}"></small>
         </div>
 
         <div class="mb-1">
           <md-input-container style="width: 100%">
-            <input mdInput disabled placeholder="Username">
+            <input mdInput disabled placeholder="{{'profile.edit.username' | translate}}">
           </md-input-container>
         </div>
 
         <div class="mb-1">
           <md-input-container style="width: 100%">
-            <input mdInput disabled placeholder="Email address">
+            <input mdInput disabled placeholder="{{'profile.edit.email' | translate}}">
           </md-input-container>
         </div>
 
 
         <div class="mb-1">
           <md-input-container style="width: 100%">
-            <input mdInput placeholder="US Phone number (15417543010)" [formControl]="form.controls['phone']" type="text">
+            <input mdInput placeholder="{{'profile.edit.phone' | translate}}" [formControl]="form.controls['phone']" type="text">
           </md-input-container>
-          <small *ngIf="form.controls['phone'].hasError('required') && form.controls['phone'].touched" class="mat-text-warn">You must include phone number.</small>
-          <small *ngIf="form.controls['phone'].errors?.phone && form.controls['phone'].touched" class="mat-text-warn">You must include a valid phone number.</small>
+          <small *ngIf="form.controls['phone'].hasError('required') && form.controls['phone'].touched" class="mat-text-warn">{{'validate.required' | translate}}</small>
+          <small *ngIf="form.controls['phone'].errors?.phone && form.controls['phone'].touched" class="mat-text-warn">{{'validate.invalid.format' | translate}}</small>
         </div>
 
       </md-card-content>
       <md-card-actions>
-        <button md-raised-button color="primary" type="submit" [disabled]="!form.valid">Submit</button>
+        <button md-raised-button color="primary" type="submit" [disabled]="!form.valid">{{'button.save' | translate}}</button>
       </md-card-actions>
     </form>
   </div>
